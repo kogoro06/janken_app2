@@ -9,7 +9,7 @@ class JankenController < ApplicationController
   def play
     if params[:choice]
       session[:player_choice] = params[:choice]
-
+  
       # あいこの場合にのみ、コンピュータの手を再度ランダムに決定する
       if session[:result] == "あいこ"
         session[:computer_choice] = ['グー', 'チョキ', 'パー'].sample
@@ -17,13 +17,13 @@ class JankenController < ApplicationController
         # 初回、またはあいこでない限り、セッションに保存されたコンピュータの選択を使用
         session[:computer_choice] ||= ['グー', 'チョキ', 'パー'].sample
       end
-
+  
       @player_choice = session[:player_choice]
       @computer_choice = session[:computer_choice]
-
+  
       @result = determine_result(@player_choice, @computer_choice)
       session[:result] = @result
-
+  
       if @result == "負け"
         flash.now[:alert] = "残念、もう１回遊んでね"
         if current_user
@@ -42,7 +42,7 @@ class JankenController < ApplicationController
       @computer_choice = session[:computer_choice]
       @result = nil
     end
-  end
+  end  
 
   def hoi
     if params[:direction]
