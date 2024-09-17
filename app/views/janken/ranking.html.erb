@@ -1,0 +1,25 @@
+<main>
+  <div class="ranking-header">
+    <h2>最多勝ランキング</h2>
+    <h3>~ TOP3 ~</h3>
+  </div>
+  <div class="ranking-container">
+    <% if @users.present? %>
+      <% @users.each do |user| %>
+        <div class="ranking-item">
+          <% if user.profile_image.attached? %>
+            <%= image_tag url_for(user.profile_image), alt: "Profile Image", class: "profile-image" %>
+          <% else %>
+            <%= image_tag 'default_profile.png', alt: "Default Profile Image", class: "profile-image" %>
+          <% end %>
+          <div class="profile-info">
+            <h4><%= user.username %></h4>
+            <p>連勝数: <%= user.max_streak %></p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>ユーザーがいません。</p>
+    <% end %>
+  </div>
+</main>

@@ -1,0 +1,296 @@
+/* 全体のスタイル */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    font-size: 1.3em;
+    background-color: #f4f4f4;
+}
+
+/* ヘッダー */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+/* ナビゲーションバー */
+.navbar {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px 40px; /* ヘッダー・フッター分のスペースを追加 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* ビューポートの高さからヘッダーとフッターの高さを引いた値 */
+    box-sizing: border-box;
+}
+
+/* フッター */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+}
+
+/* スタートボタン */
+.start-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background-color: #555;
+}
+
+.choices {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.choices.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.choices button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.choices img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+}
+
+/* フォームスタイル */
+.form-container {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    width: 100%;
+}
+
+.form-container div {
+    margin-bottom: 10px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.links a {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* プロフィールコンテナ */
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* プロフィール画像 */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+/* プロフィール情報 */
+.profile-info {
+    margin-top: 20px;
+}
+
+.btn-edit-profile {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-edit-profile:hover {
+    background-color: #0056b3;
+}
+
+/* ランキングのヘッダー */
+.ranking-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ranking-header h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.ranking-header h3 {
+    margin: 10px 0 0;
+    font-size: 26px;
+    color: #555;
+}
+
+/* ランキングコンテナ */
+.ranking-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* ランキングアイテム */
+.ranking-item {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    width: 150px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* コンテンツを垂直に中央揃え */
+    height: 300px; /* 高さを統一 */
+}
+
+/* メダルアイコンをアイテムの下部に配置 */
+.ranking-item::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -50px; /* 下部に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* メダルアイコンの色 */
+.ranking-item:nth-child(1)::after {
+    content: "🥇"; /* 1位のアイコン */
+    color: gold;
+}
+
+.ranking-item:nth-child(2)::after {
+    content: "🥈"; /* 2位のアイコン */
+    color: silver;
+}
+
+.ranking-item:nth-child(3)::after {
+    content: "🥉"; /* 3位のアイコン */
+    color: bronze;
+}
+
+/* ユーザ名と連勝数の位置調整 */
+.ranking-item .profile-info {
+    font-size: 18px;
+    margin-top: 20px;
+    /* ユーザ名と連勝数が常にボックス内で中央に配置されるように */
+}
+
+.direction-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .direction-image {
+    width: 50px; /* 必要に応じてサイズ調整 */
+    height: 50px; /* 必要に応じてサイズ調整 */
+  }

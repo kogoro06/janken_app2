@@ -1,0 +1,67 @@
+<main>
+  <!-- 結果がないときだけ「最初は👊 じゃんけん」を表示 -->
+  <% if @result.nil? %>
+    <h1 id="initial-message">最初は👊 じゃんけん</h1>
+  <% end %>
+
+  <!-- あいこの場合に表示するメッセージ -->
+  <% if @result == "あいこ" %>
+    <h1 id="initial-message" style="display: none;">あいこでしょ！</h1>
+  <% end %>
+
+  <!-- ジャンケンの選択肢、初期表示は非表示に設定 -->
+  <div id="choices" style="display: none;">
+    <div class="choices">
+      <%= form_with url: play_janken_path, method: :get, local: true do |f| %>
+        <button type="submit" name="choice" value="グー">
+          <%= image_tag 'goo.png', alt: 'グー', loading: 'lazy' %>
+        </button>
+        <button type="submit" name="choice" value="チョキ">
+          <%= image_tag 'choki.png', alt: 'チョキ', loading: 'lazy' %>
+        </button>
+        <button type="submit" name="choice" value="パー">
+          <%= image_tag 'paa.png', alt: 'パー', loading: 'lazy' %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- 結果を表示 -->
+  <% if @result.present? %>
+    <% if @result != "あいこ" %>
+      <h2>あなたの手: <%= @player_choice %></h2>
+      <h2>コンピュータの手: <%= @computer_choice %></h2>
+      <h2>結果: <%= @result %></h2>
+      
+      <!-- 勝った場合のリンク表示 -->
+      <% if @result == "勝ち" %>
+        <h2 id="hoi-link">
+          <%= link_to 'あっち向いてホイを始める', hoi_janken_path %>
+        </h2>
+      <% elsif @result == "負け" %>
+        <h2>残念... また遊んでね🎵</h2>
+        <%= link_to 'もう一度プレイする', play_janken_path %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 「最初は👊 じゃんけん」または「あいこでしょ！」のメッセージを3秒後に非表示にし、選択肢を表示
+      setTimeout(function() {
+        // 「最初は👊 じゃんけん」のメッセージが表示されている場合
+        if (document.getElementById('initial-message').style.display !== 'none') {
+          document.getElementById('initial-message').style.display = 'none';
+          const choicesElement = document.getElementById('choices');
+          choicesElement.style.display = 'block';
+        }
+      }, 3000);
+
+      // あいこの場合は「最初は👊 じゃんけん」や「あいこでしょ！」を表示する
+      <% if @result == "あいこ" %>
+        document.getElementById('initial-message').style.display = 'block';
+        document.getElementById('choices').style.display = 'none';
+      <% end %>
+    });
+  </script>
+</main>

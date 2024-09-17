@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        username: "ユーザー名"
+    errors:
+      messages:
+        taken: "はすでに存在します"
+        not_saved: "保存に失敗しました"
+  devise:
+    registrations:
+      signed_up: "アカウント登録が完了しました。"
+    sessions:
+      signed_in: "ログインしました。"
+    passwords:
+      send_instructions: "パスワード再設定の指示を送信しました。"
+      updated: "パスワードが更新されました。"
+    confirmations:
+      confirmed: "アカウントが確認されました。"
+    failure:
+      invalid: "メールアドレスまたはパスワードが無効です。"
+    shared:
+      links:
+        sign_in: "ログイン"
+        sign_up: "新規登録"
+    passwords:
+      new:
+        forgot_your_password: "パスワードをお忘れですか？"
+    confirmations:
+      new:
+        did_not_receive_confirmation_instructions: "確認メールを受け取っていませんか？"
+    unlocks:
+      new:
+        did_not_receive_unlock_instructions: "アカウントロック解除メールを受け取っていませんか？"
+  omniauth:
+    sign_in_with: "%{provider}でサインイン"

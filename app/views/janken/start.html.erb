@@ -1,0 +1,11 @@
+<!-- app/views/janken/start.html.erb -->
+<h1>ジャンケンゲーム</h1>
+<br>
+
+<% if user_signed_in? %>
+  <%= form_with url: play_janken_path, method: :get do %>
+    <%= submit_tag 'スタート', class: 'start-button' %>
+  <% end %>
+<% else %>
+  <p>ログイン後にゲームを開始できます。</p>
+<% end %>

@@ -1,0 +1,16 @@
+<header>
+  <nav class="navbar">
+    <ul>
+      <li><%= link_to 'ジャンケン', start_janken_path %></li>
+      <li><%= link_to 'ランキング', ranking_path %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to '記録', my_score_path %></li>
+        <%= link_to 'プロフィール', user_path(current_user) %>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete} %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <li><%= link_to 'ユーザー登録', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

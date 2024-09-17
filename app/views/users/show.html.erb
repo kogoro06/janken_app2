@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>プロフィール</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="profile-container">
+    <h1>プロフィール</h1>
+
+    <% if @user.profile_image.attached? %>
+      <%= image_tag url_for(@user.profile_image), alt: "Profile Image", class: "profile-image" %>
+    <% else %>
+      <p>プロフィール画像は設定されていません。</p>
+    <% end %>
+
+    <div class="profile-info">
+      <p><strong>ユーザー名:</strong> <%= @user.username %></p>
+    </div>
+
+    <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn-edit-profile' %>
+  </div>
+</body>
+</html>

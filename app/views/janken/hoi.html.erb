@@ -1,0 +1,19 @@
+<!-- app/views/janken/hoi.html.erb -->
+
+<h1>あっち向いてホイ</h1>
+
+<% if @hoi_result.nil? %>
+  <%= form_with url: hoi_janken_path, method: :get do %>
+    <div class="directions">
+      <% @directions.each do |direction| %>
+        <button type="submit" name="direction" value="<%= direction %>" class="direction-button">
+          <%= image_tag(direction_image(direction), alt: direction, class: 'direction-image') %>
+        </button>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <h2>コンピュータの方向: <%= image_tag(direction_image(@computer_direction), alt: @computer_direction, class: 'direction-image') %></h2>
+  <h2><%= @hoi_result %></h2>
+  <h2><%= link_to 'もう一度プレイする', play_janken_path %></h2>
+<% end %>

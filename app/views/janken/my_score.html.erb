@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>記録</title>
+  </head>
+  <body>
+    <h1>記録</h1>
+
+    <h2>現在の連勝数: <%= @current_streak %></h2>
+    <h2>最大連勝数: <%= @max_streak %></h2>
+
+    <h2><%= link_to 'ジャンケンをプレイする', play_janken_path %></h2>
+    <br>
+    <h2><%= link_to 'ランキング', ranking_path %></h2>
+  </body>
+</html>
